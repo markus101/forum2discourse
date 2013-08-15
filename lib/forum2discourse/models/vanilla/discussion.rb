@@ -18,10 +18,10 @@ class Forum2Discourse::Models::Vanilla::Discussion
 
     bodyComment = Forum2Discourse::Models::Vanilla::Comment.new
 
-    bodyComment.created_at = created_at
-    bodyComment.discussion_id = id
-    bodyComment.user_id = user_id
-    bodyComment.body = body
+    send("created_at=", created_at)
+    send("discussion_id=", id)
+    send("user_id=", user_id)
+    send("body=", body)
 
     comments.push(bodyComment)
 
