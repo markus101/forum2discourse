@@ -16,21 +16,6 @@ class Forum2Discourse::Models::Vanilla::Discussion
   def to_discourse
     return nil if category.nil?
 
-    puts "Values:"
-    puts "Created at: #{created_at}"
-    puts "ID: #{id}"
-    puts "User ID: #{user_id}"
-    puts "Body: #{body}"
-
-    local_created_at = created_at
-    local_id = id
-    local_user_id = user_id
-    local_body = local_body
-
-    bodyComment = Forum2Discourse::Models::Vanilla::Comment.create(:created_at => local_created_at, :discussion_id => local_id, :user_id => local_user_id, :body => local_body)
-
-    comments.push(bodyComment)
-
     Forum2Discourse::Models::Discourse::Topic.new({
       title: subject,
       created_at: created_at,
