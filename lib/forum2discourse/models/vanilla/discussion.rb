@@ -22,8 +22,12 @@ class Forum2Discourse::Models::Vanilla::Discussion
     puts "User ID: #{user_id}"
     puts "Body: #{body}"
 
-    bodyComment = Forum2Discourse::Models::Vanilla::Comment.create(:created_at => created_at, :discussion_id => id, :user_id => user_id, :body => body)
-    DataMapper.finalize
+    local_created_at = created_at
+    local_id = id
+    local_user_id = user_id
+    local_body = local_body
+
+    bodyComment = Forum2Discourse::Models::Vanilla::Comment.create(:created_at => local_created_at, :discussion_id => local_id, :user_id => local_user_id, :body => local_body)
 
     comments.push(bodyComment)
 
