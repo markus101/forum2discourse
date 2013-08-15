@@ -4,7 +4,7 @@ class Forum2Discourse::Models::Vanilla::Discussion
   storage_names[:default] = 'GDN_Discussion'
 
   property :id,           Serial, field: 'DiscussionID'
-  property :created_at,   DateTime, field: 'DateCreated'
+  property :created_at,   DateTime, field: 'DateInserted'
   property :category_id,  Integer, field: 'CategoryID'
   property :subject,      Text, field: 'Name'
 
