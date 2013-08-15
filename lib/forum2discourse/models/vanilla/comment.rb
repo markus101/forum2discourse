@@ -2,7 +2,6 @@ class Forum2Discourse::Models::Vanilla::Comment
   include DataMapper::Resource
 
   storage_names[:default] = "GDN_Comment"
-  scope :by_created_at, :order_by => 'created_at'
 
   property :id,   Serial, field: 'CommentID'
   property :created_at, DateTime, field: 'DateInserted'

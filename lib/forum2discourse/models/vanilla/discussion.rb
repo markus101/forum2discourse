@@ -20,7 +20,7 @@ class Forum2Discourse::Models::Vanilla::Discussion
       title: subject,
       created_at: created_at,
       category: category.name,
-      posts: comments.by_created_at.map(&:to_discourse)
+      posts: comments.sort_by{ |i| i.created_at }.map(&:to_discourse)
     })
   end
 end
