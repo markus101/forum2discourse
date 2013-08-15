@@ -16,6 +16,12 @@ class Forum2Discourse::Models::Vanilla::Discussion
   def to_discourse
     return nil if category.nil?
 
+    puts "Values:"
+    puts "Created at: #{created_at}"
+    puts "ID: #{id}"
+    puts "User ID: #{user_id}"
+    puts "Body: #{body}"
+
     bodyComment = Forum2Discourse::Models::Vanilla::Comment.create(:created_at => created_at, :discussion_id => id, :user_id => user_id, :body => body)
     DataMapper.finalize
 
