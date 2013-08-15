@@ -8,7 +8,7 @@ class Forum2Discourse::Models::Vanilla::Discussion
   property :category_id,  Integer, field: 'CategoryID'
   property :subject,      Text, field: 'Name'
   property :body,         Text, field: 'Body'
-  property :user_id       Text, field: 'InsertUserId'
+  property :user_id,       Text, field: 'InsertUserId'
 
   has n, :comments, 'Forum2Discourse::Models::Vanilla::Comment'
   belongs_to :category, 'Forum2Discourse::Models::Vanilla::Category'
