@@ -16,12 +16,7 @@ class Forum2Discourse::Models::Vanilla::Discussion
   def to_discourse
     return nil if category.nil?
 
-    bodyComment = Forum2Discourse::Models::Vanilla::Comment.new
-
-    send("created_at=", created_at)
-    send("discussion_id=", id)
-    send("user_id=", user_id)
-    send("body=", body)
+    bodyComment = Forum2Discourse::Models::Vanilla::Comment.create(:created_at => created_at, :discussion_id => id, :user_id => user_id, :body => body)
 
     comments.push(bodyComment)
 
